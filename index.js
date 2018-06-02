@@ -16,7 +16,7 @@ bot.on('message', message => {
   
     if(!args[0]) return message.channel.send("Tu dois préciser un nombre de messages a supprimer !")
     message.channel.bulkDelete(args[0]).then(() => {
-        message.channel.send(`${args[0]} message ont été supprimés ! `);
+        message.channel.send(`${args[0]} messages ont été supprimés ! `);
     })
   }
   });
@@ -37,7 +37,7 @@ bot.on('guildMemberAdd', member => {
 
 bot.on('ready', () => {
 
-    console.log('Bot started.');
+    console.log('Bot online .');
 
 });
 
