@@ -25,7 +25,7 @@ bot.on('message', message => {
   
 bot.on('guildMemberAdd', member => {
     member.createDM().then(channel => {
-      return channel.send('Bienvenue ' + member.displayName + ' ' +  'je suis EliotBot je suis le robot de çe serveur')
+      return channel.send('Bienvenue ' + member.displayName + ' ' +  'je suis 🤖 Eliot Bot 🤖 je suis le robot de çe serveur')
     }).catch(console.error)
   });
  
