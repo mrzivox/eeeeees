@@ -41,6 +41,6 @@ bot.on('ready', () => {
 
 });
 
-bot.login('process.env.TOKEN');
+bot.login(process.env.TOKEN);
 
 
