@@ -9,6 +9,7 @@ var prefix = "/";
 
 bot.on('message', message => {
 
+  ////clear/////////////////////
   if(message.content.startsWith(prefix + "clear")) {
     if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission !");
   
@@ -21,7 +22,7 @@ bot.on('message', message => {
   }
   });
 
-//////Welcome/Bye///////////////////////////////////////////////  
+//////Welcome/Bye////////////////
   
 bot.on('guildMemberAdd', member => {
     member.createDM().then(channel => {
@@ -29,9 +30,19 @@ bot.on('guildMemberAdd', member => {
     }).catch(console.error)
   });
  
-//Clear///////////////////////////
+//help///////////////////////////
 
-
+if (message.content === prefix + "help"){
+    var help_embed = new Discord.RichEmbed()
+        .setColor ("#47d1d1")
+        .setTitle("Menu d'aide")
+        .addField("💡 Commandes d'infos 💡 :", "/info")
+        .addField("🎉 Commandes funs : 🎉", "/fun")
+        .addField("👮 Commandes de modérations 👮 : ", "/modo")
+        .addField("🔍 Autres commandes 🔍 : ", "/other")
+        message.channel.sendEmbed(help_embed);
+    console.log(" Commande Help");
+}
 
 
 
