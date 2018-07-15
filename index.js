@@ -226,7 +226,7 @@ switch (args[0].toLowerCase()) {
           let args = message.content.split(" ").slice(1);
           let tte = args.join(" ")
           if (!tte){
-            return message.reply(":no_entry: Veuillez poser une question ! :no_entry:")};
+            return message.reply("❌ Veuillez poser une question ! ❌")};
         
             var replys = [
               "Oui",
