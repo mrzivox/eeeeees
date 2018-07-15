@@ -177,6 +177,7 @@ switch (args[0].toLowerCase()) {
                   .addField("/clear :", "Supprime les messages d'un channel .")
                   .addField("/mute | /unmute :", "Permet de mute / demute une personne sélectionnée .")
                   .addField("/warn | /unwarn :", "Permet de warn / unwarn une personne sélectionnée .")
+                  .addField("/sondage : permet de faire un sondage .")
                   .addField("/listwarns", "Affiche les warns de la personne sélectionnée .")
                   //.addField("/kick :", "Expulse une personne sélectionnée du serveur .")
                   //.addField("/ban :", "Ban une personne sélectionnée du serveur .")
