@@ -8,7 +8,6 @@ bot.on('ready', () => {
     console.log("Le bot a démarré !");
 });
 
-
 bot.on("guildMemberAdd", member => {
   member.guild.channels.find("name", "discussion").send(`Salut ${member}, Bienvenue sur Passion Communauty , Vien partager ta passion avec nous ! 👍`)
 })
@@ -19,6 +18,26 @@ bot.on("guildMemberRemove", member => {
 
 //////////////////////////////////////////
 bot.on('message', message => {
+
+  if (message.content.startsWith(prefix + "sondage")) {
+    if(message.author.id == "239503595052072960"){
+      let args = message.content.split(" ").slice(1);
+      let thingToEcho = args.join(" ")
+      var sondage = new Discord.RichEmbed()
+      .setDescription("📊 Sondage 📊")
+      .addField(thingToEcho, "Repondre avec :white_check_mark: ou :x:")
+      .setColor("#47d1d1")
+      .setTimestamp()
+      message.guild.channels.find("name", "📊sondage📊").sendEmbed(sondage)
+      .then(function (message) {
+        message.react("✅")
+        message.react("❌")
+      }).catch(function() {
+      });
+    }else{
+      return message.reply(":x: Tu n'as pas les permissions . :x:")
+  }
+}
 
 
 
@@ -194,10 +213,40 @@ switch (args[0].toLowerCase()) {
             var fun_embed = new Discord.RichEmbed()
                   .setColor("#47d1d1")
                   .setTitle("🎉 Commandes funs 🎉 :")
-                  //.addField("/8ball :", "Donne une réponse aléatoire à une question donnée .")
+                  .addField("/? :", "Donne une réponse à une question donnée .")
                   message.channel.sendEmbed(fun_embed);
                   console.log("commandes fun");
           }
+
+
+
+          bot.on('message', message => {
+            if (message.content.startsWith(prefix + "?")) {
+          let args = message.content.split(" ").slice(1);
+          let tte = args.join(" ")
+          if (!tte){
+            return message.reply(":no_entry: Veuillez poser une question ! :no_entry:")};
+        
+            var replys = [
+              "Oui",
+              "Non",
+              "Je ne sais pas",
+              "Peut-être",
+              "Peut-être pas",
+              "Sa dépend",
+              "Surement",
+              "Sans doute",
+              "Probablement",
+              "Probablement pas",
+              "Absolument",
+              "Absolument pas"
+            ];
+        
+            let reponse = (replys[Math.floor(Math.random() * replys.length)])
+            message.channel.send(reponse)
+            console.log("commande 8ball ")
+        }})
+
 
           if (!message.content.startsWith(prefix)) return;
 
@@ -547,9 +596,7 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
       message.channel.send(" :x: Vous n'avez pas les permissions :x:");
  
     }
- 
-  }},)
-
+}},)
 
 
 bot.login(process.env.TOKEN);
