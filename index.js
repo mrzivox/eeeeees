@@ -164,7 +164,7 @@ switch (args[0].toLowerCase()) {
     .addField("Tag : :hash:", `#${bot.user.discriminator}`)
     .addField("ID : :id:", `${bot.user.id}`)
     .addField("Version 🆚 :", "Eliot'Bot est en version 1.0")
-    message.reply("Je t'ai envoyé les stats du serveur en message privé ! ")
+    message.reply("Je t'ai envoyé les stats du bot en message privé ! ")
     message.author.send({embed: stats_embed});
     console.log("Commandes info")
  } 
