@@ -1,5 +1,7 @@
+
 const Discord = require('discord.js');
-const CLEAR_MESSAGES = '@clearMessages';
+const CLEAR_MESSAGES = '@clearMessages'; 
+const ytdl = require("ytdl-core");
 var bot = new Discord.Client();
 var prefix = ("/")
 
@@ -286,50 +288,22 @@ switch (args[0].toLowerCase()) {
                console.log("Commande invite")
            }
      
-if(message.content.startsWith(prefix + "00000000000000000000")) {
-    if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.channel.send("❌ Désolé, vous n'avez pas la permission nécessaire pour executer la commande ! ❌");
 
-    if (message.mentions.users.size === 0) {
-        return message.channel.send("❌ Vous devez mentionner un utilisateur ! ❌")
 
-    }
+            if (message.content.startsWith("/kick")) {
 
-    var kick = message.guild.member(message.mentions.users.first());
-    if(!kick) {
-        return message.channel.send("❌ L'utilisateur est introuvable ou inexistant ! ❌")
-    }
+                var member= message.mentions.members.first();
 
-    if(!message.guild.member(bot.user).hasPermission("KICK_MEMBERS")) {
-        return message.channel.send("❌ Je n'ai pas la permission pour exécuter la commande ! ❌");
-    }
+                member.kick().then((member) => {
 
-    kick.kick().then(member => {
-        message.channel.send(`${member.user.username} à été kick par ${message.author.username} `)
-        console.log("kick");
-    });
-}
+                    message.channel.send(":wave: " + member.displayName + " a bien été kick :point_right: ");
+                }).catch(() => {
 
-if(message.content.startsWith(prefix + "0000000000000000000000000")) {
-    if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.channel.send("❌ Désolé, vous n'avez pas les permissions pour executer la commande ! ❌")
-
-    if(message.mentions.users.size === 0) {
-        return message.channel.send("❌ Vous devez mentionner un utilisateur ! ❌")
-    }
-
-    var ban = message.guild.member(message.mentions.users.first());
-    if (!ban) {
-        return message.channel.send("❌ L'utilisateur est introuvable ou inexistant ! ❌:");
-    }
-    
-    if (!message.guild.member(bot.user).hasPermission("BAN_MEMBERS")) {
-        return message.channel.send("❌ Je n'ai pas la permission pour exécuter la commande ! ❌")
-    }
-    ban.ban().then(member => {
-        message.channel.send(`${member.user.username} à été banni par ${message.author.username} ⛔`)
-    }
-
-    )
-}
+                    message.channel.send(":x: Vous n'avez pas les permissions :x:");
+                });
+            }
+$
+          
 
 var fs = require('fs');
  
@@ -341,7 +315,7 @@ if (message.channel.type === "dm") return;
  
 var mentionned = message.mentions.users.first();
  
-if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return message.reply(":x: Vous n'avez pas les permissions :x:").catch(console.error);
+if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply(":x: Vous n'avez pas les permissions :x:").catch(console.error);
  
 if(message.mentions.users.size === 0) {
  
@@ -353,7 +327,7 @@ if(message.mentions.users.size === 0) {
  
     const mentioned = message.mentions.users.first();
  
-    if (message.member.hasPermission('MANAGE_GUILD')){
+    if (message.member.hasPermission('BAN_MEMBERS')){
  
       if (message.mentions.users.size != 0) {
  
@@ -429,13 +403,13 @@ if (message.content.startsWith(prefix+"listwarns")||message.content===prefix+"li
  
 if (message.channel.type === "dm") return;
  
-if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return message.reply(":x: Vous n'avez pas les permissions :x:").catch(console.error);
+if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply(":x: Vous n'avez pas les permissions :x:").catch(console.error);
  
     const mentioned = message.mentions.users.first();
  
     const args = message.content.split(' ').slice(1);
  
-    if (message.member.hasPermission('MANAGE_GUILD')){
+    if (message.member.hasPermission('BAN_MEMBERS')){
  
       if (message.mentions.users.size !== 0) {
  
@@ -504,7 +478,7 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
  
 if (message.channel.type === "dm") return;
  
-if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return message.reply(":x: Vous n'avez pas la permission :x:").catch(console.error);
+if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply(":x: Vous n'avez pas la permission :x:").catch(console.error);
  
    const mentioned = message.mentions.users.first();
  
@@ -512,7 +486,7 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
  
     const arg2 = Number(args[1]);
  
-    if (message.member.hasPermission('MANAGE_GUILD')){
+    if (message.member.hasPermission('BAN_MEMBERS')){
  
       if (message.mentions.users.size != 0) {
  
@@ -600,6 +574,5 @@ if(!message.guild.member(message.author).hasPermission("MANAGE_GUILD")) return m
 }},)
 
 
-bot.login(process.env.TOKEN);
-
+bot.login('Mzg4NzM2NzY2MzU5NjMzOTIx.DQ1VwQ.bBA9lVDyF6G4q33wPkDlfuNUyKY');
 
