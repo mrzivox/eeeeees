@@ -574,5 +574,5 @@ if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return me
 }},)
 
 
-bot.login('process.env.TOKEN');
+bot.login(process.env.TOKEN);
 
