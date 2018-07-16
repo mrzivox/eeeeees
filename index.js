@@ -574,5 +574,5 @@ if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return me
 }},)
 
 
-bot.login('Mzg4NzM2NzY2MzU5NjMzOTIx.DQ1VwQ.bBA9lVDyF6G4q33wPkDlfuNUyKY');
+bot.login('process.env.TOKEN');
 
