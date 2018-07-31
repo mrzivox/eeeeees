@@ -1,7 +1,6 @@
 
 const Discord = require('discord.js');
 const CLEAR_MESSAGES = '@clearMessages'; 
-const ytdl = require("ytdl-core");
 var bot = new Discord.Client();
 var prefix = ("/")
 
@@ -220,36 +219,6 @@ switch (args[0].toLowerCase()) {
                   message.channel.sendEmbed(fun_embed);
                   console.log("commandes fun");
           }
-
-
-
-          bot.on('message', message => {
-            if (message.content.startsWith(prefix + "?")) {
-          let args = message.content.split(" ").slice(1);
-          let tte = args.join(" ")
-          if (!tte){
-            return message.reply("❌ Veuillez poser une question ! ❌")};
-        
-            var replys = [
-              "Oui",
-              "Non",
-              "Je ne sais pas",
-              "Peut-être",
-              "Peut-être pas",
-              "Sa dépend",
-              "Surement",
-              "Sans doute",
-              "Probablement",
-              "Probablement pas",
-              "Absolument",
-              "Absolument pas"
-            ];
-        
-            let reponse = (replys[Math.floor(Math.random() * replys.length)])
-            message.channel.send(reponse)
-            console.log("commande 8ball ")
-        }})
-
 
           if (!message.content.startsWith(prefix)) return;
 
