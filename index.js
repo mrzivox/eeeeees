@@ -1,5 +1,5 @@
 
-cconst Discord = require('discord.js');
+const Discord = require('discord.js');
 const CLEAR_MESSAGES = '@clearMessages';
 var bot = new Discord.Client();
 var prefix = ("/")
