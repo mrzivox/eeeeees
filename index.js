@@ -40,7 +40,22 @@ bot.on('message', message => {
   }
 }
 
+  if (!message.content.startsWith(prefix)) return;
 
+  var args = message.content.substring(prefix.length).split(" ");
+
+  switch (args[0].toLowerCase()) {
+      case "airbus":
+
+      var about_embed = new Discord.RichEmbed()
+
+      .setColor("#FE8F01")
+      .setTitle("  Commande Airbus ")
+      .addField("Airbus info j'ai la flem wiki wiki")
+      message.delete();
+      message.author.send({embed: about_embed});
+      console.log("Commande surprise")
+  }
 
 if(message.content.startsWith(prefix + "clear")) {
     if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas la permission !");
