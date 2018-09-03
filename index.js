@@ -10,11 +10,11 @@ bot.on('ready', () => {
 });
 
 bot.on("guildMemberAdd", member => {
-  member.guild.channels.find("name", "discussion").send(`Salut ${member}, Bienvenue sur Passion Communauty , Vien partager ta passion avec nous ! 👍`)
+  member.guild.channels.find("name", "discussion").send(`Salut ${member}, Bienvenue sur le serveur.! 👍`)
 })
 
 bot.on("guildMemberRemove", member => {
-  member.guild.channels.find("name", "discussion").send(`${member} est parti de Passion Communauty , il partagera plus avec nous ! 👎 `)
+  member.guild.channels.find("name", "discussion").send(`${member} est parti du serveur. 👎 `)
 })
 
 //////////////////////////////////////////
